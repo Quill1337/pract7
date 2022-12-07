@@ -1,0 +1,258 @@
+﻿<Window
+    x:Class="WPFApp7_9_.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Практическая работа №7"
+    Width="700"
+    Height="500"
+    ResizeMode="NoResize"
+    mc:Ignorable="d">
+    <Window.Background>
+        <LinearGradientBrush>
+            <GradientStop x:Name="GradientStop1" Offset="0.5" Color="#333333" />
+            <GradientStop x:Name="GradientStop2" Offset="1" Color="#1F1287" />
+        </LinearGradientBrush>
+    </Window.Background>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <ColorAnimation
+                        AutoReverse="True"
+                        RepeatBehavior="Forever"
+                        Storyboard.TargetName="GradientStop1"
+                        Storyboard.TargetProperty="Color"
+                        From="#333333"
+                        To="#1F1287"
+                        Duration="0:0:2" />
+                    <ColorAnimation
+                        AutoReverse="True"
+                        RepeatBehavior="Forever"
+                        Storyboard.TargetName="GradientStop2"
+                        Storyboard.TargetProperty="Color"
+                        From="#1F1287"
+                        To="#333333"
+                        Duration="0:0:2" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Menu
+            VerticalAlignment="Top"
+            Background="Transparent"
+            Foreground="White">
+            <MenuItem Header="Файл">
+                <MenuItem
+                    x:Name="CloseApp"
+                    Click="CloseApp_Click"
+                    Foreground="Black"
+                    Header="Выход" />
+                <MenuItem
+                    x:Name="ClearAll"
+                    Click="ClearAll_Click"
+                    Foreground="Black"
+                    Header="Очистка полей" />
+            </MenuItem>
+            <MenuItem Header="Помощь">
+                <MenuItem
+                    x:Name="ShowTask"
+                    Click="ShowTask_Click"
+                    Foreground="Black"
+                    Header="Задание" />
+            </MenuItem>
+        </Menu>
+        <Button
+            x:Name="ResBox"
+            Width="120"
+            Margin="0,360,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Background="Transparent"
+            Click="ResBox_Click"
+            Content="Рассчитать"
+            Foreground="White" />
+        <CheckBox
+            x:Name="DisableTextBox"
+            Width="296"
+            Margin="0,331,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Checked="DisableTextBox_Checked"
+            Content="Включает или выключает третью тройку времени"
+            Foreground="White"
+            Unchecked="DisableTextBox_Unchecked" />
+        <GroupBox
+            Margin="106,22,144,358"
+            Foreground="White"
+            Header="Первая тройка времени">
+            <Canvas>
+                <TextBox
+                    x:Name="firstValTriad1"
+                    Width="120"
+                    Margin="10,31,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    MaxLength="8"
+                    TextWrapping="Wrap" />
+                <Label
+                    Margin="26,5,0,0"
+                    Content="Секунды"
+                    Foreground="White" Canvas.Left="13" />
+                <TextBox
+                    x:Name="secValTriad1"
+                    Canvas.Left="146"
+                    Canvas.Top="31"
+                    Width="120"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    MaxLength="8"
+                    TextWrapping="Wrap" />
+                <Label
+                    Canvas.Left="179"
+                    Canvas.Top="5"
+                    Content="Минуты"
+                    Foreground="White" />
+                <TextBox
+                    x:Name="thirValTriad1"
+                    Width="120"
+                    Margin="283,31,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    MaxLength="8"
+                    TextWrapping="Wrap" />
+                <Label
+                    Canvas.Left="324"
+                    Canvas.Top="5"
+                    Content="Часы"
+                    Foreground="White" />
+            </Canvas>
+        </GroupBox>
+        <GroupBox
+            x:Name="SecTriad"
+            Margin="106,126,144,259"
+            Foreground="White"
+            Header="Вторая тройка времени">
+            <Canvas>
+                <TextBox
+                    x:Name="firstValTriad2"
+                    Width="120"
+                    Margin="10,31,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    MaxLength="8"
+                    TextWrapping="Wrap" />
+                <Label
+                    Margin="26,5,0,0"
+                    Content="Секунды"
+                    Foreground="White" Canvas.Left="13" />
+                <TextBox
+                    x:Name="secValTriad2"
+                    Canvas.Left="146"
+                    Canvas.Top="31"
+                    Width="120"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    MaxLength="8"
+                    TextWrapping="Wrap" />
+                <Label
+                    Canvas.Left="179"
+                    Canvas.Top="5"
+                    Content="Минуты"
+                    Foreground="White" />
+                <TextBox
+                    x:Name="thirValTriad2"
+                    Width="120"
+                    Margin="283,31,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    MaxLength="8"
+                    TextWrapping="Wrap" />
+                <Label
+                    Canvas.Left="324"
+                    Canvas.Top="5"
+                    Content="Часы"
+                    Foreground="White" />
+            </Canvas>
+        </GroupBox>
+        <GroupBox
+            x:Name="ThirTriad"
+            Margin="106,225,144,158"
+            Foreground="White"
+            Header="Третья тройка времени">
+            <Canvas>
+                <TextBox
+                    x:Name="firstValTriad3"
+                    Width="120"
+                    Margin="10,31,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    MaxLength="8"
+                    TextWrapping="Wrap" />
+                <Label
+                    Margin="26,5,0,0"
+                    Content="Секунды"
+                    Foreground="White" Canvas.Left="13" />
+                <TextBox
+                    x:Name="secValTriad3"
+                    Canvas.Left="146"
+                    Canvas.Top="31"
+                    Width="120"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    MaxLength="8"
+                    TextWrapping="Wrap" />
+                <Label
+                    Canvas.Left="179"
+                    Canvas.Top="5"
+                    Content="Минуты"
+                    Foreground="White" />
+                <TextBox
+                    x:Name="thirValTriad3"
+                    Width="120"
+                    Margin="283,31,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    MaxLength="8"
+                    TextWrapping="Wrap" />
+                <Label
+                    Canvas.Left="324"
+                    Canvas.Top="5"
+                    Content="Часы"
+                    Foreground="White" />
+            </Canvas>
+        </GroupBox>
+        <Button
+            x:Name="ParityBut"
+            Width="216"
+            Margin="0,385,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Background="Transparent"
+            Click="ParityBut_Click"
+            Content="Проверка на четность/нечетность"
+            Foreground="White" />
+        <Button
+            x:Name="EqualityBut"
+            Width="216"
+            Margin="0,410,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Background="Transparent"
+            Click="EqualityBut_Click"
+            Content="Проверка на равенство/неравенство"
+            Foreground="White" />
+        <Button
+            x:Name="EqualityButSeconds"
+            Width="296"
+            Margin="0,435,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Background="Transparent"
+            Click="EqualityButSeconds_Click"
+            Content="Проверка на больше-равно/меньше-равно(время)"
+            Foreground="White" />
+    </Grid>
+</Window>
